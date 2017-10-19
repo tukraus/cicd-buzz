@@ -1,0 +1,26 @@
+version: '2'
+   
+services:
+  mongo:
+    image: mongo:3.2
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_data:/data/configdb
+    ports:
+      - "27018:27017"
+   
+  webapp:
+    links:
+      - "mongo"
+    image: cicd-buzz:color
+    ports:
+      - "5000:5555"
+    environment:
+      DATABASE_HOST: mongo
+      PORT: 5555
+      TITLE: 'aap noot mies'
+      COLOR: lime
+
+volumes:
+  mongodb_data:
+
