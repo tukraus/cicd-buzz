@@ -1,6 +1,7 @@
 import random
+import database as db
 
-buzz = ('continuous testing', 'continuous intergration',
+buzz = ('continuous testing', 'continuous integration',
     'continuous deployment', 'continuous improvement', 'devops')
 adjectives = ('complete', 'modern', 'self-service', 'integrated', 'end-to-end')
 adverbs = ('remarkably', 'enormously', 'substantially', 'significantly',
@@ -19,6 +20,10 @@ def generate_buzz():
         sample(verbs), buzz_terms[1]])
     return phrase.title()
 
-if __name__ == "__main__":
-    print generate_buzz()
+def show_buzzes():
+    buzz = generate_buzz()
+    db.save_buzz(buzz)
+    return db.get_all_buzzes()
 
+if __name__ == "__main__":
+    print show_buzzes()
