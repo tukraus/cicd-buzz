@@ -9,6 +9,10 @@ script:
   - python -m pytest -v
 
 after_success:
-  - sh ./.travis/deploy_dockerhub.sh
-  - test “$TRAVIS_BRANCH” = “master” && sh .travis/deploy_heroku.sh
-
+  - docker --version
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - eval $(aws ecr get-login --region us-east-1)
+  - docker build -t cicdbuzz .
+  - docker tag cicdbuzz:latest 757357302799.dkr.ecr.eu-west-1.amazonaws.com/thomas-cicd:latest
+  - docker push 757357302799.dkr.ecr.eu-west-1.amazonaws.com/thomas-cicd:latest
