@@ -1,8 +1,8 @@
 sudo: required
 
 before_install:
-  - apt-get update -y
-  - apt-get install docker-ce:17.06.1~ce-0~ubuntu -y
+  - sudo apt-get update -y
+  - sudo apt-get install docker-ce:17.06.1~ce-0~ubuntu -y
 
 language: python
 
@@ -15,4 +15,4 @@ after_success:
   - eval $(aws ecr get-login --no-include-email --region eu-west-1)
   - docker build -t cicdbuzz .
   - docker tag cicdbuzz:latest 757357302799.dkr.ecr.eu-west-1.amazonaws.com/thomas-cicd:latest
-  - docker push 757357302799.dkr.ecr.eu-west-1.amazonaws.com/thomas-cicd:latest
+#  - docker push 757357302799.dkr.ecr.eu-west-1.amazonaws.com/thomas-cicd:latest
