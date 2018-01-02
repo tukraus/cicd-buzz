@@ -1,7 +1,8 @@
 sudo: required
 
-services:
-  - docker
+before_install:
+  - apt-get update -y
+  - apt-get install docker-ce:17.06.1~ce-0~ubuntu -y
 
 language: python
 
