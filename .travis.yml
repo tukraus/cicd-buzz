@@ -2,7 +2,7 @@ sudo: required
 
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install docker-ce=17.06.1~ce-0~ubuntu -y
+  - sudo apt-get install docker-ce=17.06.1~ce-0~ubuntu -y --allow-downgrades
 
 language: python
 
