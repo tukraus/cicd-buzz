@@ -42,16 +42,7 @@ def generate_buzz():
     print("")
     print("")
     print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
+
     print("")
     return phrase.title()
 
