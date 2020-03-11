@@ -1,5 +1,5 @@
 import random
-import database as db
+from buzz import database as db
 
 buzz = ('continuous testing', 'continuous integration',
     'continuous deployment', 'continuous improvement', 'devops')
