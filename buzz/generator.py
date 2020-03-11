@@ -26,4 +26,4 @@ def show_buzzes():
     return db.get_all_buzzes()
 
 if __name__ == "__main__":
-    print show_buzzes()
+    print(show_buzzes())
